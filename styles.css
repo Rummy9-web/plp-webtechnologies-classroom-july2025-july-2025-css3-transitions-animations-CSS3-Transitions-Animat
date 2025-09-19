@@ -1,0 +1,116 @@
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background: #f5f5f5;
+  color: #333;
+  text-align: center;
+}
+
+/* Header Animation */
+header {
+  background: #4a90e2;
+  color: #fff;
+  padding: 2rem;
+  animation: bounceIn 2s ease forwards;
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+/* Button Styling */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background: #ff6f61;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background: #ff3b2e;
+  transform: scale(1.1);
+}
+
+/* Fade-in Animation for Sections */
+section {
+  margin: 2rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlide 1.5s ease forwards;
+}
+
+/* Project Cards */
+.card {
+  background: #fff;
+  display: inline-block;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+
+/* --- CHILDREN'S STORY APP SPECIAL ANIMATION --- */
+#projects .card:first-child {
+  /* Continuous bounce */
+  animation: moveUpDown 5s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Bounce keyframes */
+@keyframes moveUpDown {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* Flip on hover */
+#projects .card:first-child:hover {
+  animation: moveUpDown 3s ease-in-out infinite; /* keep bouncing */
+  transform: translateY(-15px) rotateY(180deg); /* bounce + flip */
+  transition: transform 1s ease;
+}
+
+/* --- KEYFRAMES --- */
+
+/* Header Bounce-in */
+@keyframes bounceIn {
+  0%   { transform: scale(0.3); opacity: 0; }
+  50%  { transform: scale(1.05); opacity: 1; }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Section Fade + Slide */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Highlight Flash (triggered by JS) */
+@keyframes flash {
+  0% { background: yellow; }
+  50% { background: orange; }
+  100% { background: transparent; }
+}
+
+/* Button Bounce (JS triggered) */
+.bounce {
+  animation: bounceClick 0.6s;
+}
+
+@keyframes bounceClick {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
